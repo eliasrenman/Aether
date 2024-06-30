@@ -28,7 +28,7 @@ export const PrimaryReducer = (state, action) => {
       return { ...state, "session": session };
 
     case "AUTH_SET_ACTIVE_USER":
-      return { ...state, "user": action.user };
+      return { ...state, "user": action.user, "session": SystemOperations.findInitialSession(action.user) };
 
     default:
       return state;
